@@ -1,3 +1,17 @@
 @startuml
- 
+!includeurl https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/release/1-0/C4_Container.puml
+
+Person(customer, "Customer", "Average online teacher during Covid times")
+
+System_Boundary(shop, "WebShop") {
+
+System(webServer, "Web Server", "Our high-perfomance Webserver")
+
+System(apiGateway, "API Gateway", "Provides a REST API")
+
+Rel(customer, webServer, "Uses", "HTTPS")
+Rel(webServer, apiGateway, "REST Request", "JSON/HTTPS")
+
+}
+
 @enduml
